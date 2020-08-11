@@ -33,3 +33,45 @@ body {
  	margin: 0 auto 0 auto;
  	flex-direction: column;
  }
+
+ .new-tweet {
+ 	align-self: center;
+ 	display: flex;
+ 	flex-direction: column;
+ }
+
+/*tweet button only*/
+#tweetButton {
+	color: #FFFFFF;
+	background: #4056A1;
+}
+
+/*text input box*/
+#tweet-text {
+	border: none;
+	border-bottom-style: solid;
+	border-bottom-color: darkgrey;
+	border-bottom-width: 5px; 
+	margin-bottom: 4px;
+	background-color: transparent;
+}
+
+/*entire form*/
+.tweetForm {
+	display: flex;
+	flex-direction: column;
+}
+
+/*tweet button and char counter*/
+.belowForm {
+	display: flex;
+	justify-content: space-between;
+	font-family: 'Bungee', cursive;
+	margin-bottom: 20px;
+}
+
+
+
+
+
+
