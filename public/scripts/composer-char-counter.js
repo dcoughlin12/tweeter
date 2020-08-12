@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("ready");
   $(".tweetInput").on("keyup", function() {
   	let charLength = $(this).val().length;
   	let counter = $(this).parent().children().children(".counter");

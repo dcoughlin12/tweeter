@@ -2,6 +2,8 @@
 		padding: 15px;
     border-style: solid;
     border-color: darkgrey;
+    margin-top: 20px;
+    z-index:1;
 }
 
 .tweetText {
@@ -45,25 +47,30 @@
 	justify-content: flex-end;
 }
 
-.rt {
+.icon {
 	width: 30px;
   height: 30px;
   margin: 4px;
 }
 
-.flag {
-  width: 30px;
-  height: 30px;
-  margin: 4px;
+.tweet {
+	filter: blur(0.8px);
 }
 
-.heart {
-  width: 30px;
-  height: 30px;
-  margin: 4px;
+.tweet:hover {
+	box-shadow: 10px 10px 3px 0px rgba(92,95,128,0.6);
+	filter: blur(0px);
 }
 
-#listedTweets {
+.tweet:hover .username {
+	color: #3b8b9bd6;
+}
+
+
+
+
+
+/*#listedTweets {
 	filter: blur(0.8px);
 }
 
@@ -74,4 +81,4 @@
 
 #listedTweets:hover .username {
 	color: #3b8b9bd6;
-}
+}*/
