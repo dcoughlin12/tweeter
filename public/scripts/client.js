@@ -5,40 +5,7 @@
  */
 
 
- const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1597263647733
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1597263647733
-    },
-  ]
+
 
 //Helper function which returns time since tweet was posted
 function timeSince(date) {
@@ -79,15 +46,9 @@ const createTweetElement = function(object) {
 	    	<img class="tweetProfilePic" src="${object.user.avatars}">
 	    	${object.user.name}
 			</div>
-	    <p class="username">
-	      ${object.user.handle}
-	    </p>
+	    <p class="username">${object.user.handle}</p>
 	  </header>
-
-	    <p class="tweetText">
-	      ${object.content.text}
-	    </p>
-
+	    <p class="tweetText">${object.content.text}</p>
 	    <footer class="tweetFooter">
 	      <p class="days">${timeSince(object.created_at)}</p>
 	      <div class="actionPic"> 
@@ -109,24 +70,38 @@ const createTweetElement = function(object) {
 // calls createTweetElement for each tweet
 // takes return value and appends it to the tweets container inside $(document).ready
 
+const loadTweets = function() {
+	$.ajax({url: "/tweets", method: 'GET'}).then((response) => {
+    renderTweets(response);
+	})
+};
+loadTweets();
+
 const renderTweets = function(tweets) {
-	for (tweet of tweets) {
+	for (let tweet of tweets) {
 		$('#listedTweets').append(createTweetElement(tweet))
 	}
 }
-once doc is ready, calling renderTweets on Data. 
-$(document).ready(function() {
-	renderTweets(data);
-})
-
+//once doc is ready, calling renderTweets on Data. 
 // $(document).ready(function() {
-// 	$("#tweetButton").on('submit', (text) => {
-// 	  $.post("http://localhost:8080/",
-// 	  function(data, status){
-// 	    alert("Data: " + data + "\nStatus: " + status);
-// 	  });
-// 	});
-// });
+// 	renderTweets(data);
+// })
+
+$(document).ready(function() {
+	$(".tweetForm").on('submit', function (event) {
+		event.preventDefault();
+		let tweet = $(this).serialize();
+		if (tweet.length -5 > 140) { 				// -5 to account for serialize characters
+			return alert('Oh no, your tweet is too long')
+		}
+		if (tweet.length <= 5) {
+			return alert('Please enter text to post tweet')
+		}
+		window.location.href = 'http://localhost:8080';
+	  $.post("/tweets", tweet).then(()=> {
+	  });
+	});
+});
 
 
 
