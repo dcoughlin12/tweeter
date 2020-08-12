@@ -1,0 +1,77 @@
+.tweet {
+		padding: 15px;
+    border-style: solid;
+    border-color: darkgrey;
+}
+
+.tweetText {
+	border-bottom-style: solid;
+  border-bottom-color: darkgray;
+  padding-bottom: 3px;
+}
+
+.tweetProfilePic {
+	width: 100px;
+  height: 100px;
+}
+
+.nameAndPic {
+	display: flex;
+  align-items: center;
+}
+
+.tweetHeader {
+	display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.username {
+	color: #f4f1ec;
+}
+
+.tweetFooter {
+	display: flex;
+	justify-content: space-between;
+}
+
+.days {
+	width: 50%;
+}
+
+.actionPic {
+	width: 100%;
+	display: inline-flex;
+	justify-content: flex-end;
+}
+
+.rt {
+	width: 30px;
+  height: 30px;
+  margin: 4px;
+}
+
+.flag {
+  width: 30px;
+  height: 30px;
+  margin: 4px;
+}
+
+.heart {
+  width: 30px;
+  height: 30px;
+  margin: 4px;
+}
+
+#listedTweets {
+	filter: blur(0.8px);
+}
+
+#listedTweets:hover {
+	box-shadow: 10px 10px 3px 0px rgba(92,95,128,0.6);
+	filter: blur(0px);
+}
+
+#listedTweets:hover .username {
+	color: #3b8b9bd6;
+}

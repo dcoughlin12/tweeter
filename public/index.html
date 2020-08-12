@@ -16,11 +16,15 @@
     <!-- Nav Bar CSS -->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
+    <!-- Tweet List -->
+    <link rel="stylesheet" href="/styles/tweetList.css" type="text/css" />
     <!-- External JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
@@ -29,10 +33,10 @@
       <span class="tweeterTitle">tweeter</span>
       <div class="newTweetTitle">
         <span><strong>Write</strong> &nbsp;a new tweet</span>
-        <img id="arrow" src="/images/arrow.png" height=20px width=20px>
+        <img id="arrow" src="/images/arrow2.png" height=20px width=20px>
       </div>
     </nav>
-    <header>
+    <header id="profileHeader">
       <div>
         <img src="/images/profile-hex.png"> 
       </div>
@@ -45,15 +49,52 @@
     <main class="container">
       <section class="new-tweet">
       <h2>Compose Tweet</h2>
-      <form class="tweetForm" action="/tweets" method="POST">
+      <form class="tweetForm" action="/tweets/" method="POST">
         <label for="tweet-text">What are you humming about?</label>
-        <textarea name="text" id="tweet-text"></textarea>
+        <textarea class="tweetInput" name="text" id="tweet-text"></textarea>
         <div class="belowForm">
           <button id="tweetButton" type="submit">Tweet</button>
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
       </section>
+
+      <section id="listedTweets">
+        <article class="tweet">
+
+          <header class="tweetHeader">
+            <div class="nameAndPic">
+            <img class="tweetProfilePic" src="/images/profile-hex.png">
+            Bob
+          </div>
+            <p class="username">
+              @Username
+            </p>
+          </header>
+
+          <p class="tweetText">
+            One time I went to the store and bought 4 apples. The store had 4 less apples.
+          </p>
+
+          <footer class="tweetFooter">
+          <p class="days">10 days ago</p>
+           <div class="actionPic"> 
+              <img class="flag" src="/images/flag.png">
+              <img class="rt" src="/images/retweet-80.png">
+              <img class="heart" src="/images/empty-heart.png">
+            </div>
+          </footer>
+          
+        </article>        
+      </section>
+
     </main>
   </body>
 </html>
+
+
+
+
+
+
+
