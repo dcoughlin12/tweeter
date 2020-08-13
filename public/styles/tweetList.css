@@ -54,31 +54,14 @@
 }
 
 .tweet {
-	filter: blur(0.8px);
+	opacity: 0.6;
 }
 
 .tweet:hover {
 	box-shadow: 10px 10px 3px 0px rgba(92,95,128,0.6);
-	filter: blur(0px);
+	opacity: 1;
 }
 
 .tweet:hover .username {
 	color: #3b8b9bd6;
 }
-
-
-
-
-
-/*#listedTweets {
-	filter: blur(0.8px);
-}
-
-#listedTweets:hover {
-	box-shadow: 10px 10px 3px 0px rgba(92,95,128,0.6);
-	filter: blur(0px);
-}
-
-#listedTweets:hover .username {
-	color: #3b8b9bd6;
-}*/

@@ -16,6 +16,9 @@
     <!-- Nav Bar CSS -->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
+    <!-- Error Messages -->
+    <link rel="stylesheet" href="/styles/errors.css" type="text/css" />
+
     <!-- Tweet List -->
     <link rel="stylesheet" href="/styles/tweetList.css" type="text/css" />
     <!-- External JS -->
@@ -42,13 +45,16 @@
       </div>
       <br>
       <div>
-        <h2>Your Name</h2>
+        <h2>Pheobe Buffay</h2>
       </div>
     </header>
-    <!-- Page-specific (main) content here -->
+
     <main class="container">
       <section class="new-tweet">
-      <h2>Compose Tweet</h2>
+      <div class="errors">
+        <p id= tooLong>🚫 Whoopsies. Your tweet is too long 🚫</p>
+        <p id= noText>🚫 Please enter text to post a tweet! 🚫</p>
+      </div>
       <form class="tweetForm" action="/tweets/" method="POST">
         <label for="tweet-text">What are you humming about?</label>
         <textarea class="tweetInput" name="text" id="tweet-text"></textarea>
@@ -58,36 +64,8 @@
         </div>
       </form>
       </section>
-
-      <section id="listedTweets">
-        <!-- <article class="tweet">
-
-          <header class="tweetHeader">
-            <div class="nameAndPic">
-            <img class="tweetProfilePic" src="/images/profile-hex.png">
-            Bob
-          </div>
-            <p class="username">
-              @Username
-            </p>
-          </header>
-
-          <p class="tweetText">
-            One time I went to the store and bought 4 apples. The store had 4 less apples.
-          </p>
-
-          <footer class="tweetFooter">
-          <p class="days">10 days ago</p>
-           <div class="actionPic"> 
-              <img class="icon" src="/images/flag.png">
-              <img class="icon" src="/images/retweet-80.png">
-              <img class="icon" src="/images/empty-heart.png">
-            </div>
-          </footer>
-          
-        </article> -->        
+      <section id="listedTweets">      
       </section>
-
     </main>
   </body>
 </html>

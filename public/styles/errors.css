@@ -1,0 +1,16 @@
+.errors {
+  align-self: flex-start;
+}
+
+#tooLong {
+	border: solid;
+	border-color: red;
+	padding: 3px;
+	margin-right: 2px;
+}
+
+#noText {
+	border: solid;
+	border-color: red;
+	padding: 3px;
+}

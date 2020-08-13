@@ -5,7 +5,12 @@
  */
 
 
-
+//Function to encode special characters and prevents	XSS attacks
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
 
 //Helper function which returns time since tweet was posted
 function timeSince(date) {
@@ -33,7 +38,7 @@ function timeSince(date) {
   if (interval > 1) {
     return Math.floor(interval) + " minutes";
   }
-  return Math.floor(seconds) + " seconds";
+  return (Math.floor(seconds) + 25) + " seconds"; //was 30 seconds off. 
 }
 
 // Takes in a tweet object and is responsible for returning a tweet <article>
@@ -48,7 +53,7 @@ const createTweetElement = function(object) {
 			</div>
 	    <p class="username">${object.user.handle}</p>
 	  </header>
-	    <p class="tweetText">${object.content.text}</p>
+	    <p class="tweetText">${escape(object.content.text)}</p>
 	    <footer class="tweetFooter">
 	      <p class="days">${timeSince(object.created_at)}</p>
 	      <div class="actionPic"> 
@@ -75,30 +80,36 @@ const loadTweets = function() {
     renderTweets(response);
 	})
 };
-loadTweets();
+
 
 const renderTweets = function(tweets) {
 	for (let tweet of tweets) {
-		$('#listedTweets').append(createTweetElement(tweet))
+		$('#listedTweets').prepend(createTweetElement(tweet)) //prepend to reverse the order.
 	}
 }
-//once doc is ready, calling renderTweets on Data. 
-// $(document).ready(function() {
-// 	renderTweets(data);
-// })
 
 $(document).ready(function() {
+	loadTweets();
+	$('#tooLong').slideUp(0);
+	$('#noText').slideUp(0);
 	$(".tweetForm").on('submit', function (event) {
 		event.preventDefault();
 		let tweet = $(this).serialize();
 		if (tweet.length -5 > 140) { 				// -5 to account for serialize characters
-			return alert('Oh no, your tweet is too long')
+			// return alert('Oh no, your tweet is too long')
+			$('#noText').slideUp(400);
+			return $('#tooLong').slideDown(400);
 		}
 		if (tweet.length <= 5) {
-			return alert('Please enter text to post tweet')
+			$('#tooLong').slideUp(400);
+			return $('#noText').slideDown(400);
+			// return $('#noText').css("opacity", "1");
 		}
+		$('#tooLong').slideUp(200);
+		$('#noText').slideUp(200);
 		window.location.href = 'http://localhost:8080';
-	  $.post("/tweets", tweet).then(()=> {
+	  $.post("/tweets", tweet).then((response)=> {
+	  	loadTweets();
 	  });
 	});
 });
