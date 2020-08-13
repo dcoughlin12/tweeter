@@ -1,0 +1,33 @@
+@media screen and (min-width: 0px) {
+  .tweeterNav {
+    background-color: #2b3941;
+    background-image: url(https://www.transparenttextures.com/patterns/brick-wall.png);
+    width: 100%;
+  }
+  #profileHeader {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .tweeterNav {
+    background-color: #4056A1;
+    background-image: none;
+  }
+  #profileHeader {
+    max-width: 28%;
+    float: left;
+    margin-left: 25px;
+    margin-top: 200px;
+    position: fixed;
+    border: solid #464545;
+
+
+  }
+  .container {
+    width: 60%;
+    float: right;
+    margin-top: 11%;
+    margin-right: 25px
+  }
+}

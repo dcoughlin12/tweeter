@@ -38,7 +38,7 @@ function timeSince(date) {
   if (interval > 1) {
     return Math.floor(interval) + " minutes";
   }
-  return (Math.floor(seconds) + 25) + " seconds"; //was 30 seconds off. 
+  return (Math.floor(seconds)) + " seconds"; //was 30 seconds off. 
 }
 
 // Takes in a tweet object and is responsible for returning a tweet <article>
