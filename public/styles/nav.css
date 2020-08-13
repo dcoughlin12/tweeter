@@ -22,17 +22,20 @@
 .newTweetTitle {
 	display: flex;
   flex-direction: column;
-  /*justify-content: flex-end;*/
 }
 
 .newTweetTitle:hover #arrow{
  	filter: blur(0px);
  }
 
+#writeNew {
+	cursor: pointer;
+}
+
 #arrow {
+	filter: blur(1.2px);
 	display: flex;
 	align-self: center;
-	filter: blur(1.2px);
 }
 
 #profileHeader {

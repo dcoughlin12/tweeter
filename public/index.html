@@ -22,17 +22,15 @@
     <!-- Disabling Viewport zooming on mobile -->
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <!-- App JS -->
+    <script type="text/javascript" src="/scripts/helper.js"></script>
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-
   </head>
-
   <body>
-    <!-- Top nav bar (fixed) -->
     <nav class="tweeterNav">
       <span class="tweeterTitle">tweeter</span>
       <div class="newTweetTitle">
-        <span><strong>Write</strong> &nbsp;a new tweet</span>
+        <label id="writeNew" for="tweet-text"><strong>Write</strong> &nbsp;a new tweet</label>
         <img id="arrow" src="/images/arrow2.png" height=20px width=20px>
       </div>
     </nav>
@@ -45,7 +43,6 @@
         <h2>Pheobe Buffay</h2>
       </div>
     </header>
-
     <main class="container">
       <section class="new-tweet">
       <div class="errors">

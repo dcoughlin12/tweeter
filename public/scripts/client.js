@@ -4,43 +4,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-
-//Function to encode special characters and prevents	XSS attacks
-const escape =  function(str) {
-  let div = document.createElement('div');
-  div.appendChild(document.createTextNode(str));
-  return div.innerHTML;
-}
-
-//Helper function which returns time since tweet was posted
-function timeSince(date) {
-
-  let seconds = Math.floor((new Date() - date) / 1000);
-
-  let interval = seconds / 31536000;
-
-  if (interval > 1) {
-    return Math.floor(interval) + " years";
-  }
-  interval = seconds / 2592000;
-  if (interval > 1) {
-    return Math.floor(interval) + " months";
-  }
-  interval = seconds / 86400;
-  if (interval > 1) {
-    return Math.floor(interval) + " days";
-  }
-  interval = seconds / 3600;
-  if (interval > 1) {
-    return Math.floor(interval) + " hours";
-  }
-  interval = seconds / 60;
-  if (interval > 1) {
-    return Math.floor(interval) + " minutes";
-  }
-  return (Math.floor(seconds)) + " seconds"; //was 30 seconds off. 
-}
-
+$(document).ready(function() {
 // Takes in a tweet object and is responsible for returning a tweet <article>
 // <article> containins the entire HTML structure of the tweet.
 const createTweetElement = function(object) {
@@ -53,7 +17,7 @@ const createTweetElement = function(object) {
 			</div>
 	    <p class="username">${object.user.handle}</p>
 	  </header>
-	    <p class="tweetText">${escape(object.content.text)}</p>
+	    <p class="tweetText">${escape1(object.content.text)}</p>
 	    <footer class="tweetFooter">
 	      <p class="days">${timeSince(object.created_at)}</p>
 	      <div class="actionPic"> 
@@ -65,30 +29,18 @@ const createTweetElement = function(object) {
  	</article> `;
  	return tweet;
 }	
-
-// const $tweet = createTweetElement(tweetData);
-// $(document).ready(function() {
-// 	$('#listedTweets').append($tweet);
-// })
-
-// loops through tweets
-// calls createTweetElement for each tweet
-// takes return value and appends it to the tweets container inside $(document).ready
-
+// Get Tweets
 const loadTweets = function() {
 	$.ajax({url: "/tweets", method: 'GET'}).then((response) => {
     renderTweets(response);
 	})
-};
-
-
+}
+//Loop through tweets and list them
 const renderTweets = function(tweets) {
 	for (let tweet of tweets) {
 		$('#listedTweets').prepend(createTweetElement(tweet)) //prepend to reverse the order.
 	}
 }
-
-$(document).ready(function() {
 	loadTweets();
 	$('#tooLong').slideUp(0);
 	$('#noText').slideUp(0);
@@ -96,14 +48,12 @@ $(document).ready(function() {
 		event.preventDefault();
 		let tweet = $(this).serialize();
 		if (tweet.length -5 > 140) { 				// -5 to account for serialize characters
-			// return alert('Oh no, your tweet is too long')
 			$('#noText').slideUp(400);
 			return $('#tooLong').slideDown(400);
 		}
 		if (tweet.length <= 5) {
 			$('#tooLong').slideUp(400);
 			return $('#noText').slideDown(400);
-			// return $('#noText').css("opacity", "1");
 		}
 		$('#tooLong').slideUp(200);
 		$('#noText').slideUp(200);
