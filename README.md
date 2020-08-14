@@ -1,24 +1,18 @@
-# Tweeter Project
+# Tweeter App
 
-Tweeter is a simple, single-page Twitter clone.
+Tweeter is a single-page Twitter clone. Tweeter is an AJAX-based Twitter clone that uses jQuery, HTML5, Javascript, and CSS.
+
 
 ## Final Product
 
-!["Desktop Layout"]()
-!["Tablet Layout"]()
-!["Tweet Feed"]()
+!["Desktop Layout"](https://github.com/dcoughlin12/tweeter/blob/master/docs/desktop-layout.png?raw=true)
+Users compile a tweet and post it to the feed. 
+The Character counter lets users know how many characters they have left and lets them know if they ave written too much.
+!["Tablet Layout"](https://github.com/dcoughlin12/tweeter/blob/master/docs/tablet-layout.png?raw=true)
+Tweeters responsive design allows for a wonderful user experience on all devices.
+!["Tweet Feed"](https://github.com/dcoughlin12/tweeter/blob/master/docs/Tweet-list.png?raw=true)
+Tweets are relative time stamped and placed in chronological order. 
+Each tweet is highlighted when the cursor is hovering over it, the username is also shown during hover.	
 
 
 
-## Try it out!
-
-1. Fork this repository, then clone your fork of this repository.
-2. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
-5. Post some tweets that no one will ever see. How fun!!
-
-## Dependencies
-
-- Express
-- Node 5.10.x or above
