@@ -41,7 +41,6 @@ const renderTweets = function(tweets) {
 		$('#listedTweets').prepend(createTweetElement(tweet)) //prepend to reverse the order.
 	}
 }
-	// loadTweets();
 	$('#tooLong').slideUp(0);
 	$('#noText').slideUp(0);
 	$(".tweetForm").on('submit', function (event) {
@@ -58,7 +57,6 @@ const renderTweets = function(tweets) {
 		$('#tooLong').slideUp(200);
 		$('#noText').slideUp(200);
 	  $.post("/tweets", tweet).then((response)=> {
-	  	// loadTweets();
 	  	$(".tweetForm")[0].reset();
 	  	$("#listedTweets").empty();
 	  	$(this).children().children(".counter").html(140);
