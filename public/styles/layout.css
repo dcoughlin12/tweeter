@@ -58,6 +58,10 @@ body {
 	background-color: transparent;
 }
 
+.tweetInput {
+	margin-top: 8px;
+}
+
 /*entire form*/
 .tweetForm {
 	display: flex;

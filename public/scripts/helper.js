@@ -20,6 +20,9 @@ function timeSince(date) {
   if (interval > 1) {
     return Math.floor(interval) + " minutes";
   }
+  if (seconds < 20) {
+    return "just now";
+  }
   return (Math.floor(seconds)) + " seconds"; //was 30 seconds off. 
 };
 
