@@ -37,7 +37,7 @@ $(document).ready(function() {
 	//Loop through tweets and list them
 	const renderTweets = function(tweets) {
 		for (let tweet of tweets) {
-			$('#listedTweets').prepend(createTweetElement(tweet)) //prepend to reverse the order.
+			$('#listedTweets').prepend(createTweetElement(tweet))
 		}
 	};
 	$('#tooLong').slideUp(0);
